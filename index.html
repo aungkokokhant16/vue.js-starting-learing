@@ -7,6 +7,16 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
 
+    <style>
+
+        .box{
+            background-color: aqua;
+            padding: 100px;
+            display: inline-block;
+            margin: 30px;
+        }
+    </style>
+
 </head>
 <body>
     <h1>Vue3 Learning</h1>
@@ -20,12 +30,28 @@
 
 
     <div id="app">
+        <div v-if = "showbook">
+
+        
         <p>Book Name - {{title}}</p>
         <p>Author Name - {{author}}</p>
         <p>Author Age - {{age}}</p>
+
+    </div>
         <!-- <button v-on:click="IncreaseAge">IncreaseAge</button> -->
-        <button v-on:click="age++">IncreaseAge</button>
-        <button v-on:click="author='aungaung'">Change Author Name</button>
+        <!-- <button v-on:click="age++">IncreaseAge</button>
+        <button v-on:click="author='aungaung'">Change Author Name</button> -->
+
+       <button @click = "showbook=!showbook">
+           <span v-if = "showbook">HideBook</span>
+           <span v-if = "!showbook">ShowBook</span>
+       </button>
+
+       <br>
+
+       <div class="box" @mouseover="mouseHover($event,data)">Mouse Hover</div>
+       <div class="box" @mouseleave="mouseleafH">Mouse leave</div>
+       <div class="box" @dblclick="mousedouble">Double Click</div>
     </div>
 
 

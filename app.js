@@ -3,14 +3,25 @@ const app=Vue.createApp({
         return{
             title:"You don't js",
             author:"anonymous",
-            age:"20"
+            age:"20",
+            showbook:true,
+
 
         }
     },
 
     methods:{
         IncreaseAge(){
-            // this.age++
+            this.age++
+        },
+        mouseHover(event){
+            console.log("mouse hover is working",event.type);
+        },
+        mouseleafH(event){
+            console.log("mose leaf is working",event.type);
+        },
+        mousedouble(event){
+            console.log("mouse douvlie working,event",event.type);
         }
     }
    
