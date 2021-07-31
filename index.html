@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,79 +8,67 @@
     <script src="https://unpkg.com/vue@next"></script>
 
     <style>
-        .box {
+
+        .box{
             background-color: aqua;
             padding: 100px;
             display: inline-block;
             margin: 30px;
         }
+
+        li{
+            list-style: none;
+
+        }
+        .favourite{
+            background-color: aquamarine;
+        }
+
     </style>
 
 </head>
-
 <body>
     <h1>Vue3 Learning</h1>
 
 
 
 
-
-
+    <!-- book.isFav=!book.isFav -->
 
 
 
     <div id="app">
-        <div v-if="showbook">
+        <div v-if = "showbook">
+            <ul v-for = "book in filterBooks">
+                <li :class="{favourite:book.isFav}" @click = "clickHandler(book)">
+                    <img :src="book.img" width=200 height=300 alt="">
+                    <p>Book Name - {{book.title}}</p>
+                    <p>Author Name - {{book.author}}</p>
+                    <p>Author Age - {{book.age}}</p>
+                    <hr>
+                </li>
 
-
-            <div v-for="book in books">
-                <p>Book Name - {{book.title}}</p>
-                <p>Author Name - {{book.author}}</p>
-                <p>Author Age - {{book.age}}</p>
-                <hr>
-            </div>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            </ul>
+        
+            
+    </div>
         <!-- <button v-on:click="IncreaseAge">IncreaseAge</button> -->
         <!-- <button v-on:click="age++">IncreaseAge</button>
         <button v-on:click="author='aungaung'">Change Author Name</button> -->
 
-        <button @click="showbook=!showbook">
-            <span v-if="showbook">HideBook</span>
-            <span v-if="!showbook">ShowBook</span>
-        </button>
+       <button @click = "showbook=!showbook">
+           <span v-if = "showbook">HideBook</span>
+           <span v-if = "!showbook">ShowBook</span>
+       </button>
 
-        <br>
+       <br>
 
-        <!-- <a v-bind:href="link">Google</a> -->
-        <a :href="link">Google</a>//ShortCut Key
+       <a :href="link">googel</a>
 
-        <!-- <br>
-
-       <div class="box" @mouseover="mouseHover($event,data)">Mouse Hover</div>
+       <div class="box" @mouseover="mouseHover">Mouse Hover</div>
        <div class="box" @mouseleave="mouseleafH">Mouse leave</div>
-       <div class="box" @dblclick="mousedouble">Double Click</div> -->
+       <div class="box" @dblclick="mousedouble">Double Click</div>
     </div>
-
-
-
 
 
 
@@ -98,5 +85,4 @@
 
     <script src="app.js"></script>
 </body>
-
 </html>

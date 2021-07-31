@@ -9,18 +9,24 @@ const app = Vue.createApp({
                     title: "You don't js",
                     author: "anonymous",
                     age: 20,
+                    img:"img/1.jpeg",
+                    isFav: true,
                 },
 
                 {
-                    title: "You don't js",
+                    title: "bok1",
                     author: "anonymous",
                     age: 20,
+                    img: "img/2.jpeg",
+                    isFav: false,
                 },
 
                 {
-                    title: "You don't js",
+                    title: "book3",
                     author: "anonymous",
                     age: 20,
+                    img: "img/3.jpeg",
+                    isFav: true,
                 }
             ],
 
@@ -44,6 +50,17 @@ const app = Vue.createApp({
         // mousedouble(event){
         //     console.log("mouse douvlie working,event",event.type);
         // }
+        clickHandler(book){
+            book.isFav=!book.isFav
+
+        }
+    },
+    computed:{
+        filterBooks(){
+            return this.books.filter(book=>{
+                return book.isFav;
+            });
+        }
     }
 
 });
